@@ -42,10 +42,11 @@ class Router:
 
 if __name__ == '__main__':
     import argparse
-    parser = argparse.ArgumentParser('router_address')
-    parser = argparse.ArgumentParser('--cache_expiration', help='(minutes)', default=0)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('router_address')
+    parser.add_argument('--cache_expiration', help='(minutes)', default=0)
     args = parser.parse_args()
 
-    router = Router(args.router_addres, args.cache_expiration)
+    router = Router(args.router_address, args.cache_expiration)
     print(router.get_broadband_ipv4_address())
 
